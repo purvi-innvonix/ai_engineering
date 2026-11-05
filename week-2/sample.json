@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "product": "Wireless Headphones",
+    "text": "Absolutely love these headphones! The sound quality is crystal clear and the bass is deep without being overwhelming. Battery lasts easily 30+ hours and the noise cancellation is top-notch. Worth every penny."
+  },
+  {
+    "id": 2,
+    "product": "Coffee Maker",
+    "text": "Best coffee maker I've ever owned. Brews a perfect cup every single morning. Easy to clean, looks great on the counter, and the programmable timer means coffee is ready before I even wake up. Highly recommend to any coffee lover."
+  },
+  {
+    "id": 3,
+    "product": "Running Shoes",
+    "text": "These shoes changed my morning runs completely. Super lightweight, great arch support, and they don't cause any blisters even after 10km. The grip on wet pavement is also impressive. Already ordered a second pair."
+  },
+  {
+    "id": 4,
+    "product": "Bluetooth Speaker",
+    "text": "Very disappointed. The sound cuts out every few minutes and the connection drops constantly even when the phone is right next to it. Returned it after two days. Save your money and buy something else."
+  },
+  {
+    "id": 5,
+    "product": "Laptop Stand",
+    "text": "Cheap plastic that broke after a week. Wobbles on any surface, scratched my desk, and the height adjustment mechanism snapped off. The pictures made it look sturdy but it is flimsy junk. Completely waste of money."
+  },
+  {
+    "id": 6,
+    "product": "Backpack",
+    "text": "It's a decent backpack. Nothing special but nothing terrible either. Fits a 15-inch laptop fine and has enough pockets. The shoulder straps are a bit thin for heavy loads. For the price, it does what it needs to do."
+  },
+  {
+    "id": 7,
+    "product": "Phone Case",
+    "text": "Okay case for the price. It protects the phone and fits well. The color is slightly different from the photos online but not a big deal. I've had better but also much worse. Neutral on this one."
+  },
+  {
+    "id": 8,
+    "product": "Smart Watch",
+    "text": "The display and fitness tracking are excellent — really accurate step counts and heart rate. But the battery only lasts a day and a half, which is frustrating. Also the app is buggy on Android. Great hardware, poor software."
+  },
+  {
+    "id": 9,
+    "product": "Air Purifier",
+    "text": "Works well for allergies and the air quality sensor is nice. However it is louder than expected on medium speed. Sleep mode is quiet but does not filter enough. Customer support was helpful when I had questions though."
+  },
+  {
+    "id": 10,
+    "product": "Gaming Chair",
+    "text": "Assembly took 3 hours and the instructions were terrible. Once assembled, it is actually very comfortable for long sessions and the lumbar support is great. Just be ready to spend a whole afternoon putting it together."
+  }
+]

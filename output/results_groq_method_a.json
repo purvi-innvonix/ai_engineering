@@ -1,0 +1,156 @@
+[
+  {
+    "sentiment": "positive",
+    "key_positives": [
+      "crystal clear sound quality",
+      "deep but not overwhelming bass",
+      "battery life of 30+ hours",
+      "top-notch noise cancellation",
+      "worth the price"
+    ],
+    "key_issues": [],
+    "summary": "The reviewer is highly satisfied with the headphones' performance and value.",
+    "recommendation": "low",
+    "id": 1,
+    "product": "Wireless Headphones"
+  },
+  {
+    "sentiment": "positive",
+    "key_positives": [
+      "Brews a perfect cup every morning",
+      "Easy to clean",
+      "Attractive design on the counter",
+      "Programmable timer for ready coffee before waking up",
+      "Highly recommended to coffee lovers"
+    ],
+    "key_issues": [],
+    "summary": "The reviewer praises the coffee maker for its consistent brewing, easy cleaning, attractive design, and convenient timer.",
+    "recommendation": "low",
+    "id": 2,
+    "product": "Coffee Maker"
+  },
+  {
+    "sentiment": "positive",
+    "key_positives": [
+      "Super lightweight",
+      "Great arch support",
+      "No blisters even after 10km",
+      "Impressive grip on wet pavement",
+      "Customer ordered a second pair"
+    ],
+    "key_issues": [],
+    "summary": "The reviewer praises the shoes for their lightweight feel, arch support, blister\u2011free comfort, and wet\u2011pavement grip, and has already ordered another pair.",
+    "recommendation": "low",
+    "id": 3,
+    "product": "Running Shoes"
+  },
+  {
+    "sentiment": "negative",
+    "key_positives": [],
+    "key_issues": [
+      "sound cuts out every few minutes",
+      "connection drops constantly even when the phone is right next to it",
+      "returned after two days"
+    ],
+    "summary": "The reviewer experienced frequent audio dropouts and unstable Bluetooth connectivity, leading to a quick return.",
+    "recommendation": "high",
+    "id": 4,
+    "product": "Bluetooth Speaker"
+  },
+  {
+    "sentiment": "negative",
+    "key_positives": [],
+    "key_issues": [
+      "Cheap plastic construction",
+      "Broke after a week",
+      "Wobbles on any surface",
+      "Scratched desk",
+      "Height adjustment mechanism snapped off",
+      "Misleading product images showing sturdiness"
+    ],
+    "summary": "The reviewer found the laptop stand to be flimsy, unstable, and prone to breaking.",
+    "recommendation": "high",
+    "id": 5,
+    "product": "Laptop Stand"
+  },
+  {
+    "sentiment": "mixed",
+    "key_positives": [
+      "Fits a 15-inch laptop fine",
+      "Has enough pockets",
+      "Good value for the price",
+      "Overall decent backpack"
+    ],
+    "key_issues": [
+      "Shoulder straps are a bit thin for heavy loads"
+    ],
+    "summary": "The backpack is a decent, affordable option with useful features, though its shoulder straps may not hold up under heavy loads.",
+    "recommendation": "low",
+    "id": 6,
+    "product": "Backpack"
+  },
+  {
+    "sentiment": "neutral",
+    "key_positives": [
+      "Protects the phone",
+      "Fits well",
+      "Good value for the price"
+    ],
+    "key_issues": [
+      "Color is slightly different from the photos online"
+    ],
+    "summary": "The reviewer finds the case acceptable, noting solid protection and fit but mentions a minor color discrepancy.",
+    "recommendation": "low",
+    "id": 7,
+    "product": "Phone Case"
+  },
+  {
+    "sentiment": "mixed",
+    "key_positives": [
+      "Excellent display",
+      "Accurate step counts and heart\u2011rate tracking",
+      "Great hardware overall"
+    ],
+    "key_issues": [
+      "Battery life only lasts a day and a half",
+      "App is buggy on Android",
+      "Overall software quality is poor"
+    ],
+    "summary": "The reviewer praises the watch\u2019s display and fitness tracking but criticizes its short battery life and buggy Android app.",
+    "recommendation": "medium",
+    "id": 8,
+    "product": "Smart Watch"
+  },
+  {
+    "sentiment": "mixed",
+    "key_positives": [
+      "works well for allergies",
+      "air quality sensor is nice",
+      "customer support was helpful"
+    ],
+    "key_issues": [
+      "louder than expected on medium speed",
+      "sleep mode is quiet but does not filter enough"
+    ],
+    "summary": "The reviewer finds the purifier effective for allergies and appreciates its sensor and support, but notes noise and insufficient filtering in sleep mode.",
+    "recommendation": "medium",
+    "id": 9,
+    "product": "Air Purifier"
+  },
+  {
+    "sentiment": "mixed",
+    "key_positives": [
+      "Very comfortable for long gaming sessions",
+      "Great lumbar support"
+    ],
+    "key_issues": [
+      "Assembly took 3 hours",
+      "Instructions were terrible",
+      "Requires a whole afternoon to put together"
+    ],
+    "summary": "The chair offers excellent comfort and lumbar support, but its assembly process is time\u2011consuming and poorly instructed.",
+    "recommendation": "medium",
+    "id": 10,
+    "product": "Gaming Chair"
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "sentiment": "positive",
+    "key_positives": [
+      "crystal clear sound quality",
+      "deep bass",
+      "long battery life (30+ hours)",
+      "excellent noise cancellation"
+    ],
+    "key_issues": [],
+    "summary": "The reviewer highly recommends these wireless headphones for their superior sound quality, long battery life, and effective noise cancellation.",
+    "recommendation": "low",
+    "id": 1,
+    "product": "Wireless Headphones"
+  },
+  {
+    "sentiment": "positive",
+    "key_positives": [
+      "Brews a perfect cup every single morning",
+      "Easy to clean",
+      "Looks great on the counter",
+      "Programmable timer"
+    ],
+    "key_issues": [],
+    "summary": "The reviewer highly recommends this coffee maker for its perfect brewing, ease of cleaning, attractive design, and programmable timer.",
+    "recommendation": "high",
+    "id": 2,
+    "product": "Coffee Maker"
+  },
+  {
+    "sentiment": "positive",
+    "key_positives": [
+      "Super lightweight",
+      "Great arch support",
+      "No blisters after 10km",
+      "Impressive grip on wet pavement"
+    ],
+    "key_issues": [],
+    "summary": "The reviewer is highly satisfied with the running shoes, praising their lightweight design, arch support, and grip on wet pavement.",
+    "recommendation": "low",
+    "id": 3,
+    "product": "Running Shoes"
+  },
+  {
+    "sentiment": "negative",
+    "key_positives": [],
+    "key_issues": [
+      "Sound cuts out frequently",
+      "Connection drops constantly"
+    ],
+    "summary": "The reviewer was very disappointed with the Bluetooth speaker due to frequent sound interruptions and connection drops.",
+    "recommendation": "high",
+    "id": 4,
+    "product": "Bluetooth Speaker"
+  },
+  {
+    "sentiment": "negative",
+    "key_positives": [],
+    "key_issues": [
+      "Cheap plastic that broke after a week",
+      "Wobbles on any surface",
+      "Scratched my desk",
+      "Height adjustment mechanism snapped off",
+      "Pictures made it look sturdy but it is flimsy junk"
+    ],
+    "summary": "The laptop stand is described as cheap and flimsy, breaking quickly and causing damage to the desk.",
+    "recommendation": "high",
+    "id": 5,
+    "product": "Laptop Stand"
+  },
+  {
+    "sentiment": "neutral",
+    "key_positives": [
+      "Fits a 15-inch laptop fine",
+      "Has enough pockets"
+    ],
+    "key_issues": [
+      "Shoulder straps are a bit thin for heavy loads"
+    ],
+    "summary": "The backpack is a basic and affordable option that meets essential needs.",
+    "recommendation": "low",
+    "id": 6,
+    "product": "Backpack"
+  },
+  {
+    "sentiment": "neutral",
+    "key_positives": [
+      "Protects the phone",
+      "Fits well"
+    ],
+    "key_issues": [
+      "Color is slightly different from the photos online"
+    ],
+    "summary": "The reviewer found the phone case to be a good value for the price, offering adequate protection and a good fit.",
+    "recommendation": "low",
+    "id": 7,
+    "product": "Phone Case"
+  },
+  {
+    "sentiment": "mixed",
+    "key_positives": [
+      "excellent display",
+      "accurate step counts",
+      "accurate heart rate tracking"
+    ],
+    "key_issues": [
+      "short battery life",
+      "buggy app on Android"
+    ],
+    "summary": "The smart watch has excellent display and fitness tracking features, but it suffers from a short battery life and a buggy app on Android.",
+    "recommendation": "medium",
+    "id": 8,
+    "product": "Smart Watch"
+  },
+  {
+    "sentiment": "mixed",
+    "key_positives": [
+      "Works well for allergies",
+      "Air quality sensor is nice",
+      "Customer support was helpful"
+    ],
+    "key_issues": [
+      "Louder than expected on medium speed",
+      "Sleep mode is quiet but does not filter enough"
+    ],
+    "summary": "The air purifier effectively helps with allergies and has a useful air quality sensor, but it is noisier than anticipated on medium speed and the sleep mode does not provide sufficient filtration.",
+    "recommendation": "medium",
+    "id": 9,
+    "product": "Air Purifier"
+  },
+  {
+    "sentiment": "mixed",
+    "key_positives": [
+      "Very comfortable for long sessions",
+      "Great lumbar support"
+    ],
+    "key_issues": [
+      "Assembly took 3 hours",
+      "Instructions were terrible"
+    ],
+    "summary": "The gaming chair is comfortable and offers good lumbar support, but the assembly process was time-consuming and poorly guided.",
+    "recommendation": "medium",
+    "id": 10,
+    "product": "Gaming Chair"
+  }
+]

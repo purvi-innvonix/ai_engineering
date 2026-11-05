@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube RAG Assistant | AI Chatbot</title>
+  <meta name="description" content="Ask questions about any YouTube video transcript with local RAG powered by Ollama and FAISS.">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Highlight.js for Syntax Highlighting in Code Blocks -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  
+  <!-- Marked.js for Markdown Rendering -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-layout" id="appLayout">
+    <!-- Mobile Overlay Backdrop -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-badge">
+          <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+          <div class="brand-text">
+            <span class="brand-title">YouTube RAG</span>
+            <span class="brand-subtitle">AI Video Chat</span>
+          </div>
+        </div>
+        <button class="icon-btn close-sidebar-btn" id="closeSidebarBtn" title="Close Sidebar" aria-label="Close Sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- New Chat Button -->
+      <button class="new-chat-btn" id="newChatBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>New Chat</span>
+      </button>
+
+      <!-- Video Loader Card -->
+      <div class="sidebar-section">
+        <label class="section-label">Target YouTube Video</label>
+        <div class="url-input-card">
+          <div class="input-with-icon">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <input type="text" id="videoUrlInput" placeholder="https://www.youtube.com/watch?v=..." value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          </div>
+          <button class="primary-btn" id="loadVideoBtn">
+            <span class="btn-text">Load & Index Transcript</span>
+            <div class="btn-spinner" id="loadSpinner"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Video Status / Info Preview -->
+      <div class="sidebar-section" id="videoInfoSection">
+        <label class="section-label">Indexed Video Details</label>
+        <div class="video-info-card" id="videoInfoCard">
+          <div class="empty-video-placeholder" id="emptyVideoPlaceholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8"></polygon>
+            </svg>
+            <p>No video loaded yet.<br>Click "Load & Index" above.</p>
+          </div>
+          <div class="loaded-video-details" id="loadedVideoDetails" style="display: none;">
+            <div class="thumbnail-wrapper">
+              <img id="videoThumb" src="" alt="Video thumbnail">
+              <span class="status-pill active-pill">Indexed</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Video ID:</span>
+              <span class="meta-value" id="metaVideoId">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Total Chunks:</span>
+              <span class="meta-value" id="metaChunks">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Characters:</span>
+              <span class="meta-value" id="metaChars">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Section -->
+      <!-- Settings Section -->
+      <div class="sidebar-section">
+        <label class="section-label">Language Model (LLM)</label>
+        <div class="select-wrapper">
+          <select id="modelSelector">
+            <optgroup label="Local (Ollama)">
+              <option value="llama3.2:1b" selected>llama3.2:1b (Fast Local)</option>
+              <option value="llama3.2:latest">llama3.2:latest (Local 3B)</option>
+              <option value="llama3.1:8b">llama3.1:8b (Local 8B)</option>
+            </optgroup>
+            <optgroup label="Google Gemini (Cloud)">
+              <option value="gemini-1.5-flash">Gemini 1.5 Flash (Ultra Fast)</option>
+              <option value="gemini-1.5-pro">Gemini 1.5 Pro (High Reasoning)</option>
+            </optgroup>
+            <optgroup label="OpenAI (Cloud)">
+              <option value="gpt-4o-mini">GPT-4o Mini (Cloud)</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="system-status">
+          <span class="status-dot online"></span>
+          <span class="status-text">Ollama &middot; Cloud Models &middot; FAISS</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Navigation Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn" id="openSidebarBtn" title="Toggle Sidebar" aria-label="Toggle Sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="header-video-badge" id="headerVideoBadge">
+            <span class="badge-status-dot"></span>
+            <span class="badge-text" id="headerVideoText">No Video Loaded</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button class="topbar-action-btn" id="clearChatBtn" title="Clear conversation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span>Clear</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat Messages Scroll Container -->
+      <section class="chat-container" id="chatContainer">
+        <!-- Hero Welcome View (Shown when no messages) -->
+        <div class="welcome-hero" id="welcomeHero">
+          <div class="hero-icon-wrapper">
+            <svg class="hero-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"></path>
+            </svg>
+          </div>
+          <h1 class="hero-title">YouTube Transcript RAG</h1>
+          <p class="hero-subtitle">Ask anything about the loaded YouTube video. Answers are grounded purely in transcript chunks using local FAISS and Ollama.</p>
+
+          <div class="suggestion-grid" id="suggestionGrid">
+            <button class="suggestion-card" data-prompt="What promises does the singer make?">
+              <span class="card-icon">🎵</span>
+              <span class="card-text">What promises does the singer make?</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Can you summarize the main message of this video in 3 bullet points?">
+              <span class="card-icon">📝</span>
+              <span class="card-text">Summarize the main message in 3 bullet points</span>
+            </button>
+            <button class="suggestion-card" data-prompt="What feelings or rules does the speaker talk about?">
+              <span class="card-icon">💡</span>
+              <span class="card-text">What feelings or rules does the speaker mention?</span>
+            </button>
+            <button class="suggestion-card" data-prompt="Who is this video intended for and what is the tone?">
+              <span class="card-icon">🎯</span>
+              <span class="card-text">Who is this video for and what is the tone?</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat Stream Messages List -->
+        <div class="messages-list" id="messagesList"></div>
+      </section>
+
+      <!-- Bottom Chat Input Bar -->
+      <footer class="input-container-wrapper">
+        <div class="input-container">
+          <textarea
+            id="chatInput"
+            placeholder="Ask a question about the video transcript..."
+            rows="1"
+            maxlength="2000"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" title="Send message" aria-label="Send message">
+            <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <div class="stop-icon" style="display:none;">
+              <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+            </div>
+          </button>
+        </div>
+        <div class="input-footer-note">
+          RAG responses are generated locally via Ollama with strict context grounding.
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Application Logic -->
+  <script src="/static/app.js"></script>
+</body>
+</html>
